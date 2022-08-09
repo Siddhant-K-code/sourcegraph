@@ -811,7 +811,7 @@ func publishFinalDockerImage(c Config, app string) operations.Operation {
 // This defaults to `-nightly`, and will be `-$MAJOR-$MINOR` for a tagged release
 // build.
 func executorImageFamilyForConfig(c Config) string {
-	imageFamily := "sourcegraph-executors-nightly"
+	imageFamily := "sourcegraph-executors-3-42"
 	if c.RunType.Is(runtype.TaggedRelease) {
 		ver, err := semver.NewVersion(c.Version)
 		if err != nil {
@@ -873,7 +873,7 @@ func publishExecutor(c Config, skipHashCompare bool) operations.Operation {
 // This defaults to `-nightly`, and will be `-$MAJOR-$MINOR` for a tagged release
 // build.
 func executorDockerMirrorImageFamilyForConfig(c Config) string {
-	imageFamily := "sourcegraph-executors-docker-mirror-nightly"
+	imageFamily := "sourcegraph-executors-docker-mirror-3-42"
 	if c.RunType.Is(runtype.TaggedRelease) {
 		ver, err := semver.NewVersion(c.Version)
 		if err != nil {
