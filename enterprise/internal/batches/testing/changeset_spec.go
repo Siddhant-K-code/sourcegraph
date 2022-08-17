@@ -42,7 +42,7 @@ type TestSpecOpts struct {
 	BaseRef string
 }
 
-var TestChangsetSpecDiffStat = &diff.Stat{Added: 10, Changed: 5, Deleted: 2}
+var TestChangsetSpecDiffStat = &diff.Stat{Added: 15, Deleted: 7}
 
 func BuildChangesetSpec(t *testing.T, opts TestSpecOpts) *btypes.ChangesetSpec {
 	t.Helper()
@@ -81,7 +81,6 @@ func BuildChangesetSpec(t *testing.T, opts TestSpecOpts) *btypes.ChangesetSpec {
 			},
 		},
 		DiffStatAdded:   TestChangsetSpecDiffStat.Added,
-		DiffStatChanged: TestChangsetSpecDiffStat.Changed,
 		DiffStatDeleted: TestChangsetSpecDiffStat.Deleted,
 	}
 
