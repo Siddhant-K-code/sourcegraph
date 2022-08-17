@@ -1462,7 +1462,6 @@ func TestRepositoryPermissions(t *testing.T) {
 				UserID:          userID,
 				BatchSpecID:     batchSpec.ID,
 				DiffStatAdded:   4,
-				DiffStatChanged: 4,
 				DiffStatDeleted: 4,
 				Spec:            &batcheslib.ChangesetSpec{ExternalID: "123"},
 			}
