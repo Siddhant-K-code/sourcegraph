@@ -29,3 +29,10 @@
     font-weight: bold;
     font-size: 2rem
 }
+
+.repos {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: 1fr 1fr 1fr 1fr 4fr;
+    align-items: center;
+}
