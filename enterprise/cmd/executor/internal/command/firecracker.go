@@ -59,6 +59,7 @@ func setupFirecracker(ctx context.Context, runner commandRunner, logger Logger, 
 		Key: "setup.firecracker.start",
 		Command: flatten(
 			"ignite", "run",
+			"--log-level", "debug",
 			"--runtime", "docker",
 			"--network-plugin", "cni",
 			firecrackerResourceFlags(options.ResourceOptions),
@@ -93,8 +94,14 @@ func setupFirecracker(ctx context.Context, runner commandRunner, logger Logger, 
 // the given name.
 func teardownFirecracker(ctx context.Context, runner commandRunner, logger Logger, name string, operations *Operations) error {
 	removeCommand := command{
-		Key:       "teardown.firecracker.remove",
-		Command:   flatten("ignite", "rm", "-f", name),
+		Key: "teardown.firecracker.remove",
+		Command: flatten(
+			"ignite",
+			"rm",
+			"--log-level", "debug",
+			"-f",
+			name,
+		),
 		Operation: operations.TeardownFirecrackerRemove,
 	}
 	if err := runner.RunCommand(ctx, removeCommand, logger); err != nil {
