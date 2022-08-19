@@ -1434,6 +1434,32 @@
           "description": "Slack webhook for upcoming license expiration notifications.",
           "type": "string",
           "group": "Sourcegraph.com"
+        },
+        "currentCliVersion": {
+          "description": "Configuration related to the src-cli current version API endpoint.",
+          "type": "object",
+          "group": "Sourcegraph.com",
+          "properties": {
+            "enabled": {
+              "description": "Enables the src-cli current version API endpoint.",
+              "type": "boolean",
+              "default": false
+            },
+            "github": {
+              "description": "GitHub configuration, both for queries and receiving release webhooks.",
+              "type": "object",
+              "properties": {
+                "token": {
+                  "description": "The access token to use when communicating with GitHub.",
+                  "type": "string"
+                },
+                "webhookSecret": {
+                  "description": "The release webhook secret.",
+                  "type": "string"
+                }
+              }
+            }
+          }
         }
       },
       "group": "Sourcegraph.com"

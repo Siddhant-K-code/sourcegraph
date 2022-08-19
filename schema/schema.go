@@ -452,6 +452,14 @@ type CodeIntelRepositoryBadge struct {
 	ForNerds *bool `json:"forNerds,omitempty"`
 }
 
+// CurrentCliVersion description: Configuration related to the src-cli current version API endpoint.
+type CurrentCliVersion struct {
+	// Enabled description: Enables the src-cli current version API endpoint.
+	Enabled bool `json:"enabled,omitempty"`
+	// Github description: GitHub configuration, both for queries and receiving release webhooks.
+	Github *Github `json:"github,omitempty"`
+}
+
 // CustomGitFetchMapping description: Mapping from Git clone URl domain/path to git fetch command. The `domainPath` field contains the Git clone URL domain/path part. The `fetch` field contains the custom git fetch command.
 type CustomGitFetchMapping struct {
 	// DomainPath description: Git clone URL domain/path
@@ -468,6 +476,8 @@ type DebugLog struct {
 
 // Dotcom description: Configuration options for Sourcegraph.com only.
 type Dotcom struct {
+	// CurrentCliVersion description: Configuration related to the src-cli current version API endpoint.
+	CurrentCliVersion *CurrentCliVersion `json:"currentCliVersion,omitempty"`
 	// SlackLicenseExpirationWebhook description: Slack webhook for upcoming license expiration notifications.
 	SlackLicenseExpirationWebhook string `json:"slackLicenseExpirationWebhook,omitempty"`
 }
@@ -962,6 +972,14 @@ type GitLabRateLimit struct {
 type GitLabWebhook struct {
 	// Secret description: The secret used to authenticate incoming webhook requests
 	Secret string `json:"secret"`
+}
+
+// Github description: GitHub configuration, both for queries and receiving release webhooks.
+type Github struct {
+	// Token description: The access token to use when communicating with GitHub.
+	Token string `json:"token,omitempty"`
+	// WebhookSecret description: The release webhook secret.
+	WebhookSecret string `json:"webhookSecret,omitempty"`
 }
 
 // GitoliteConnection description: Configuration for a connection to Gitolite.
