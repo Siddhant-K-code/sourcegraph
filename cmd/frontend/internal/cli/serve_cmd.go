@@ -290,7 +290,6 @@ func Main(enterpriseSetupHook func(db database.DB, c conftypes.UnifiedWatchable)
 		enterprise.LicenseResolver,
 		enterprise.DotcomResolver,
 		enterprise.SearchContextsResolver,
-		enterprise.OrgRepositoryResolver,
 		enterprise.NotebooksResolver,
 		enterprise.ComputeResolver,
 	)
