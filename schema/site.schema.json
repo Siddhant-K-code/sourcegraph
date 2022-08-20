@@ -1449,6 +1449,27 @@
               "description": "GitHub configuration, both for queries and receiving release webhooks.",
               "type": "object",
               "properties": {
+                "interval": {
+                  "description": "The interval between version checks, expressed as a string that can be parsed by Go's time.ParseDuration.",
+                  "type": "string",
+                  "default": "1h"
+                },
+                "repository": {
+                  "description": "The repository to get the latest version of.",
+                  "type": "object",
+                  "properties": {
+                    "owner": {
+                      "description": "The repository namespace.",
+                      "type": "string",
+                      "default": "sourcegraph"
+                    },
+                    "name": {
+                      "description": "The repository name.",
+                      "type": "string",
+                      "default": "src-cli"
+                    }
+                  }
+                },
                 "token": {
                   "description": "The access token to use when communicating with GitHub.",
                   "type": "string"

@@ -976,6 +976,10 @@ type GitLabWebhook struct {
 
 // Github description: GitHub configuration, both for queries and receiving release webhooks.
 type Github struct {
+	// Interval description: The interval between version checks, expressed as a string that can be parsed by Go's time.ParseDuration.
+	Interval string `json:"interval,omitempty"`
+	// Repository description: The repository to get the latest version of.
+	Repository *Repository `json:"repository,omitempty"`
 	// Token description: The access token to use when communicating with GitHub.
 	Token string `json:"token,omitempty"`
 	// WebhookSecret description: The release webhook secret.
@@ -1552,6 +1556,14 @@ type Repos struct {
 	Callsign string `json:"callsign"`
 	// Path description: Display path for the url e.g. gitolite/my/repo
 	Path string `json:"path"`
+}
+
+// Repository description: The repository to get the latest version of.
+type Repository struct {
+	// Name description: The repository name.
+	Name string `json:"name,omitempty"`
+	// Owner description: The repository namespace.
+	Owner string `json:"owner,omitempty"`
 }
 type Responders struct {
 	Id       string `json:"id,omitempty"`
